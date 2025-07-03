@@ -1,0 +1,14 @@
+#include <iostream>
+#include <random>
+
+using namespace std;
+
+int main (){
+    random_device rd; //rd adalah nama variabel, bisa diganti diganti
+    mt19937 gen(rd()); //mt ini adalah algoritma prng
+    uniform_int_distribution<> distrib(10,50);
+    int acak = distrib(gen); // untuk menampung hasil dari distribution
+    
+    cout << "Acak : " << acak;
+    return 0;
+}

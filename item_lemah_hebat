@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std; //membantu bentuk lebih rapi, tapi tidak detail
+
+int main(){ //fungsi utama
+//inisialisasi - sekali saja dijalankan
+    string item = ""; //kumpulan karakter. berikan nilai awal pada variabel
+    string item_sblm = "belum ada";
+    string item_terhebat = "";
+    string item_terlemah = "";
+    
+    int stat = 0;
+    int stat_sblm = 0;
+    int stat_terhebat = 0;
+    int stat_terlemah = 0;
+    
+    char ulang = 'y';
+    
+    bool first = true;
+    
+    //gameloop - berjalan terus selama program dijalankan
+    while(ulang == 'y'){
+        cout << "Input item : "; // std merupakan method bagian dari iostream 
+        cin >> item;
+        cout <<"Input stat : ";
+        cin >> stat;
+        cout << "Item : " << item << endl;
+        cout << "Stat : " << stat << endl;
+        if(first == true){
+            item_sblm = "Tidak ada";
+            stat_sblm = 0;
+            item_terhebat = item;
+            stat_terhebat = stat;
+            item_terlemah = item;
+            stat_terlemah = stat;
+            first = false;
+        } else if(stat > stat_terhebat){ //bisa juga pake if aja tapi taruh di bawah
+            stat_terhebat = stat;
+            item_terhebat = item;
+        } else if (stat < stat_terlemah){
+            stat_terlemah = stat;
+            item_terlemah = item;
+        }
+        cout << "Item sebelumnya : " << item_sblm << endl;
+        cout << "Stat sebelumnya : " << stat_sblm << endl;
+        item_sblm = item; // urutan program disesuaikan biar tidak bug
+        stat_sblm = stat; //kalo mau pake if lagi tulis disini
+        cout << "Item terhebat : " << item_terhebat << endl;
+        cout << "Item terlemah : " << item_terlemah << endl;
+        cout << "Input lagi (y/t)? : ";
+        cin >> ulang;
+        
+    }
+    
+    return 0; //untuk melakukan debugging
+}//{} adalah scope(ruang lingkup)

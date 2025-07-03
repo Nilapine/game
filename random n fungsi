@@ -1,0 +1,31 @@
+#include <iostream>
+#include <random>
+
+using namespace std;
+
+int acak(int min, int max);
+
+int main() {
+	int attack = 0;
+	int defense = 0;
+	int skill = 0;
+	
+	attack = acak(50,70);
+	defense = acak(10,80);
+	skill = acak(10,30);
+
+	cout << "Attack : " << attack << endl;
+	cout << "Defense : " << defense << endl;
+	cout << "Skill : " << skill << endl;
+
+	return 0;
+}
+
+int acak(int min, int max) {
+	random_device rd; //rd adalah nama variabel, bisa diganti diganti
+	mt19937 gen(rd()); //mt ini adalah algoritma prng
+	uniform_int_distribution<> distrib(min,max);
+	int hasil_acak = distrib(gen); // untuk menampung hasil dari distribution
+
+	return hasil_acak;
+}
